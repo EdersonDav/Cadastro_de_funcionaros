@@ -19,12 +19,12 @@ class Funcionario {
   @Column()
   sobrenome: string;
 
-  @Column()
-  cargo_id: string;
-
-  @OneToOne(() => Cargo)
+  @OneToOne(() => Cargo, cargo => cargo.funcionario, { eager: true })
   @JoinColumn({ name: 'cargo_id' })
   cargo: Cargo;
+
+  @Column()
+  cargo_id: string;
 
   @Column()
   nascimento: string;
