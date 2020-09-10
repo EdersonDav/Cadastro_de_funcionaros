@@ -15,7 +15,7 @@ export default class CreateTableFuncionario1599695874891
             default: 'uuid_generate_v4()',
           },
           {
-            name: 'name',
+            name: 'nome',
             type: 'varchar',
           },
           {
@@ -28,11 +28,11 @@ export default class CreateTableFuncionario1599695874891
             isNullable: true,
           },
           {
-            name: 'data_nascimento',
+            name: 'nascimento',
             type: 'timestamp',
           },
           {
-            name: 'nascimento',
+            name: 'salario',
             type: 'decimal',
           },
         ],
