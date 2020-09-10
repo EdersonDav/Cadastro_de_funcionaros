@@ -29,11 +29,13 @@ export default class CreateTableFuncionario1599695874891
           },
           {
             name: 'nascimento',
-            type: 'timestamp',
+            type: 'varchar',
           },
           {
             name: 'salario',
             type: 'decimal',
+            precision: 10,
+            scale: 2,
           },
         ],
       }),

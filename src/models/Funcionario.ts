@@ -14,7 +14,7 @@ class Funcionario {
   id: string;
 
   @Column()
-  name: string;
+  nome: string;
 
   @Column()
   sobrenome: string;
@@ -27,7 +27,7 @@ class Funcionario {
   cargo: Cargo;
 
   @Column()
-  nascimento: Date;
+  nascimento: string;
 
   @Column('decimal')
   salario: number;

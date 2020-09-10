@@ -15,7 +15,7 @@ export default class CreateTableCargo1599696411298
             default: 'uuid_generate_v4()',
           },
           {
-            name: 'name',
+            name: 'nome',
             type: 'varchar',
           },
           {

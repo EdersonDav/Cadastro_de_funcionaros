@@ -6,7 +6,7 @@ class Cargo {
   id: string;
 
   @Column()
-  name: string;
+  nome: string;
 
   @Column()
   descricao: string;
