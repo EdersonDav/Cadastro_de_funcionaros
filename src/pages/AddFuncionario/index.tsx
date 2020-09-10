@@ -6,11 +6,11 @@ const AddFuncionario: React.FC = () => {
     <Container>
       <form>
         <h1>Funcionario</h1>
-        <input type="text" placeholder="Nome" />
-        <input type="text" placeholder="Sobrenome" />
-        <input type="number" placeholder="Salário R$" />
-        <input type="date" />
-        <select name="cargos" id="cargos">
+        <input type="text" required placeholder="Nome" />
+        <input type="text" required placeholder="Sobrenome" />
+        <input type="number" required placeholder="Salário R$" />
+        <input type="date" required />
+        <select name="cargos" required id="cargos">
           <option value="Desenvolvedor Pleno">Desenvolvedor Pleno</option>
           <option value="Desenvolvedor Junior">Desenvolvedor Junior</option>
           <option value="Desenvolvedor Senior">Desenvolvedor Senior</option>

@@ -6,8 +6,8 @@ const AddCargo: React.FC = () => {
     <Container>
       <form>
         <h1>Cargo</h1>
-        <input type="text" placeholder="Nome do cargo" />
-        <input type="text" placeholder="Descrição do cargo" />
+        <input type="text" required placeholder="Nome do cargo" />
+        <input type="text" required placeholder="Descrição do cargo" />
         <div>
           <button type="button">Cancelar</button>
           <button type="submit">Salvar</button>
