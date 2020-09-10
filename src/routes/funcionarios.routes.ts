@@ -25,6 +25,13 @@ funcionariosRouter.post('/', async (request, response) => {
   response.json(funcionario);
 });
 
+funcionariosRouter.get('/:id', async (request, response) => {
+  const { id } = request.params;
+  const funcionarioRepository = getRepository(Funcionario);
+  const funcionario = await funcionarioRepository.findOne({ where: { id } });
+  response.json(funcionario);
+});
+
 funcionariosRouter.put('/:id', async (request, response) => {
   const { nome, sobrenome, cargo_id, nascimento, salario } = request.body;
   const { id } = request.params;
