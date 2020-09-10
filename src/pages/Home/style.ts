@@ -8,7 +8,7 @@ export const Container = styled.div`
 `;
 export const Card = styled.div`
   width: 30%;
-  height: 200px;
+  height: 230px;
   background: #fff;
   color: #312e38;
   margin: 20px 10px 0;
@@ -44,6 +44,7 @@ export const Card = styled.div`
     margin-top: 10px;
     width: 100%;
     li {
+      text-align: center;
       margin-top: 10px;
       span {
         color: #26ad92;

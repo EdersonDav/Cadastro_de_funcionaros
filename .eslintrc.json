@@ -36,7 +36,6 @@
     "react/jsx-props-no-spreading": "off",
     "react/prop-types": "off",
     "@typescript-eslint/ban-types": "off",
-    // "no-unused-expressions": "off",
     "no-use-before-define": "off",
     "array-callback-return": "off",
     "@typescript-eslint/explicit-function-return-type": [

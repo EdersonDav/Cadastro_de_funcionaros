@@ -26,6 +26,10 @@ const Home: React.FC = () => {
     api.get('funcionarios').then(resp => {
       setFuncionarios(resp.data);
     });
+  }, [funcionarios]);
+
+  const deleteFuncionario = useCallback(async id => {
+    await api.delete(`funcionarios/${id}`);
   }, []);
 
   return (
@@ -41,7 +45,10 @@ const Home: React.FC = () => {
                   <Link to="/novo-funcionario">
                     <FiEdit size={20} color="#008EF6" />
                   </Link>
-                  <button type="button">
+                  <button
+                    onClick={() => deleteFuncionario(funcionario.id)}
+                    type="button"
+                  >
                     <FiTrash size={20} color="#F60000" />
                   </button>
                 </div>
