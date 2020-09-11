@@ -7,7 +7,7 @@ export const Container = styled.div`
     list-style: none;
     display: flex;
     width: 90%;
-    margin: 30px auto auto auto;
+    margin: 30px auto;
     flex-wrap: wrap;
   }
   li {
@@ -16,7 +16,7 @@ export const Container = styled.div`
     flex-direction: column;
     width: 31%;
     min-width: 200px;
-    margin: 20px 10px;
+    margin: 20px auto;
     align-items: center;
     justify-content: space-between;
     background: #fff;

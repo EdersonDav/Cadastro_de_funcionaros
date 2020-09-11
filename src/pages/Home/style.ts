@@ -8,10 +8,11 @@ export const Container = styled.div`
 `;
 export const Card = styled.div`
   width: 30%;
+  min-width: 210px;
   height: 230px;
   background: #fff;
   color: #312e38;
-  margin: 20px 10px 0;
+  margin: 20px auto;
   box-shadow: 0px 0px 15px -5px rgba(0, 0, 0, 0.5);
   border-radius: 5px;
   color: #312e38;
