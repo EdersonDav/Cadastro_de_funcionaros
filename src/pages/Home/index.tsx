@@ -31,6 +31,13 @@ const Home: React.FC = () => {
     await api.delete(`funcionarios/${id}`);
   }, []);
 
+  const formatValue = useCallback((value: number): string => {
+    return Intl.NumberFormat('pt-BR', {
+      style: 'currency',
+      currency: 'BRL',
+    }).format(value);
+  }, []);
+
   return (
     <>
       <Header />
@@ -65,7 +72,7 @@ const Home: React.FC = () => {
                     : 'Funcionario sem cargo'}
                 </li>
                 <li>
-                  <span>R$ {funcionario.salario}</span>
+                  <span>{formatValue(funcionario.salario)}</span>
                 </li>
               </ul>
             </Card>
