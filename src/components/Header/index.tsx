@@ -1,15 +1,27 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FiPlus } from 'react-icons/fi';
+import { FiPlus, FiList, FiHome } from 'react-icons/fi';
 import { Container } from './style';
 
 const Header: React.FC = () => {
   return (
     <Container>
       <div>
+        <span>Home</span>
+        <Link to="/">
+          <FiHome size={20} />
+        </Link>
+      </div>
+      <div>
         <span>Adicionar funcionario</span>
-        <Link to="/novo-funcionario/00">
+        <Link to="/novo-funcionario">
           <FiPlus size={20} />
+        </Link>
+      </div>
+      <div>
+        <span>Listar cargos</span>
+        <Link to="/listar-cargo">
+          <FiList size={20} />
         </Link>
       </div>
       <div>

@@ -14,7 +14,7 @@ interface Funcionario {
   id: string;
   nome: string;
   sobrenome: string;
-  cargo: Cargo;
+  cargo: Cargo | null;
   nascimento: string;
   salario: number;
 }
@@ -39,7 +39,11 @@ const Home: React.FC = () => {
           return (
             <Card key={funcionario.id}>
               <div>
-                <span>{funcionario.cargo.nome}</span>
+                <span>
+                  {funcionario.cargo?.nome !== null
+                    ? funcionario.cargo?.nome
+                    : 'Funcionario sem cargo'}
+                </span>
                 <div>
                   <Link to={`/edit-funcionario/${funcionario.id}`}>
                     <FiEdit size={20} color="#008EF6" />
@@ -55,7 +59,11 @@ const Home: React.FC = () => {
               <ul>
                 <li>{`${funcionario.nome} ${funcionario.sobrenome}`}</li>
                 <li>{funcionario.nascimento}</li>
-                <li>{funcionario.cargo.descricao}</li>
+                <li>
+                  {funcionario.cargo?.descricao !== null
+                    ? funcionario.cargo?.descricao
+                    : 'Funcionario sem cargo'}
+                </li>
                 <li>
                   <span>R$ {funcionario.salario}</span>
                 </li>

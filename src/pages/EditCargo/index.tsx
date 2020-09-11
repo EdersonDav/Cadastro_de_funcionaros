@@ -1,20 +1,35 @@
-import React, { useCallback, useState, ChangeEvent, FormEvent } from 'react';
-import { useHistory } from 'react-router-dom';
+import React, {
+  useEffect,
+  useCallback,
+  useState,
+  ChangeEvent,
+  FormEvent,
+} from 'react';
+import { useRouteMatch, useHistory } from 'react-router-dom';
 import { Container } from './style';
 import Header from '../../components/Header';
 import api from '../../services/api';
 
+interface CargoId {
+  id: string;
+}
 interface Cargo {
   nome: string;
   descricao: string;
 }
 
 const AddCargo: React.FC = () => {
+  const { params } = useRouteMatch<CargoId>();
   const history = useHistory();
   const [cargo, setCargo] = useState<Cargo>({
     nome: '',
     descricao: '',
   });
+  useEffect(() => {
+    api.get(`cargos/${params.id}`).then(resp => {
+      setCargo(resp.data);
+    });
+  }, [params.id]);
 
   const handleInputChange = useCallback(
     (event: ChangeEvent<HTMLInputElement>): void => {
@@ -32,10 +47,10 @@ const AddCargo: React.FC = () => {
         nome,
         descricao,
       };
-      await api.post('/cargos', data);
+      await api.put(`/cargos/${params.id}`, data);
       history.push('/listar-cargo');
     },
-    [history, cargo],
+    [history, cargo, params.id],
   );
 
   return (
@@ -50,6 +65,7 @@ const AddCargo: React.FC = () => {
             onChange={handleInputChange}
             required
             placeholder="Nome do cargo"
+            value={cargo.nome}
           />
           <input
             name="descricao"
@@ -57,6 +73,7 @@ const AddCargo: React.FC = () => {
             onChange={handleInputChange}
             required
             placeholder="Descrição do cargo"
+            value={cargo.descricao}
           />
           <div>
             <button type="button" onClick={() => history.push('/listar-cargo')}>
