@@ -3,8 +3,8 @@
   "host": "localhost",
   "port": 5432,
   "username": "postgres",
-  "password": ,
-  "database": ,
+  "password": "Adiocionar a sua senha",
+  "database": "Adicionar o nome do seu banco",
   "entities": [
     "./src/models/*.ts"
   ],
