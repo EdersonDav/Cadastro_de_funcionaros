@@ -45,7 +45,7 @@
 
 `yarn`
 
-**No terminal retorne para a pasta raiz do projeto e depois entre na pasta cliente e execute o comando**
+**No terminal retorne para a pasta raiz do projeto e depois entre na pasta client e execute o comando**
 
 `yarn`
 
