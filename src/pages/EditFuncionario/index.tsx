@@ -5,18 +5,22 @@ import React, {
   useCallback,
   FormEvent,
 } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useRouteMatch, useHistory } from 'react-router-dom';
 import InputMask from 'react-input-mask';
 import api from '../../services/api';
 import { Container } from './style';
 import Header from '../../components/Header';
 
+interface UserId {
+  id: string;
+}
 interface Cargo {
   id: string;
   nome: string;
   descricao: string;
 }
 interface Funcionario {
+  id: string;
   nome: string;
   sobrenome: string;
   cargo_id: string;
@@ -25,7 +29,10 @@ interface Funcionario {
 }
 
 const AddFuncionario: React.FC = () => {
+  const history = useHistory();
+  const { params } = useRouteMatch<UserId>();
   const [funcionario, setFuncionario] = useState<Funcionario>({
+    id: '',
     nome: '',
     sobrenome: '',
     cargo_id: '',
@@ -33,13 +40,18 @@ const AddFuncionario: React.FC = () => {
     salario: 0,
   });
   const [selectValue, setSelectValue] = useState('');
-  const history = useHistory();
   const [cargos, setCargos] = useState<Cargo[]>([]);
   useEffect(() => {
     api.get('cargos').then(resp => {
       setCargos(resp.data);
     });
   }, []);
+
+  useEffect(() => {
+    api.get(`funcionarios/${params.id}`).then(resp => {
+      setFuncionario(resp.data);
+    });
+  }, [params.id]);
 
   const handleInputChange = useCallback(
     (event: ChangeEvent<HTMLInputElement>): void => {
@@ -48,12 +60,12 @@ const AddFuncionario: React.FC = () => {
     },
     [funcionario],
   );
-
   const handleSubmit = useCallback(
     async (event: FormEvent) => {
       event.preventDefault();
       const { nome, sobrenome, nascimento, salario } = funcionario;
       const cargo_id = selectValue;
+      const { id } = params;
       const data = {
         nome,
         sobrenome,
@@ -61,10 +73,10 @@ const AddFuncionario: React.FC = () => {
         nascimento,
         salario,
       };
-      await api.post('/funcionarios', data);
+      await api.put(`funcionarios/${id}`, data);
       history.push('/');
     },
-    [selectValue, funcionario, history],
+    [selectValue, funcionario, history, params],
   );
   return (
     <>
@@ -107,6 +119,7 @@ const AddFuncionario: React.FC = () => {
             onChange={e => setSelectValue(e.target.value)}
             name="cargos"
             required
+            id="cargos"
           >
             <option value="Cargo"> Cargo</option>
             {cargos.map(cargo => {

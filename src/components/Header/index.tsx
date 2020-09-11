@@ -8,7 +8,7 @@ const Header: React.FC = () => {
     <Container>
       <div>
         <span>Adicionar funcionario</span>
-        <Link to="/novo-funcionario">
+        <Link to="/novo-funcionario/00">
           <FiPlus size={20} />
         </Link>
       </div>

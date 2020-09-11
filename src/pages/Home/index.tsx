@@ -21,7 +21,6 @@ interface Funcionario {
 
 const Home: React.FC = () => {
   const [funcionarios, setFuncionarios] = useState<Funcionario[]>([]);
-
   useEffect(() => {
     api.get('funcionarios').then(resp => {
       setFuncionarios(resp.data);
@@ -42,7 +41,7 @@ const Home: React.FC = () => {
               <div>
                 <span>{funcionario.cargo.nome}</span>
                 <div>
-                  <Link to="/novo-funcionario">
+                  <Link to={`/edit-funcionario/${funcionario.id}`}>
                     <FiEdit size={20} color="#008EF6" />
                   </Link>
                   <button
