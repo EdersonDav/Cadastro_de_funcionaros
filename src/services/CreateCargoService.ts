@@ -13,7 +13,8 @@ class CreateCargoService {
     const cargoCadastrado = await cargoRepository.findOne({
       where: { nome },
     });
-    if (!cargoCadastrado) {
+
+    if (cargoCadastrado) {
       throw new Error('Cargo já cadastrada');
     }
 
