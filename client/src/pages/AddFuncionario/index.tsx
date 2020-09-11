@@ -21,7 +21,7 @@ interface Funcionario {
   sobrenome: string;
   cargo_id: string;
   nascimento: string;
-  salario: number;
+  salario: number | string;
 }
 
 const AddFuncionario: React.FC = () => {
@@ -30,7 +30,7 @@ const AddFuncionario: React.FC = () => {
     sobrenome: '',
     cargo_id: '',
     nascimento: '',
-    salario: 0,
+    salario: '',
   });
   const [selectValue, setSelectValue] = useState('');
   const history = useHistory();
@@ -93,13 +93,14 @@ const AddFuncionario: React.FC = () => {
             required
             name="salario"
             placeholder="Salário R$"
-            value={funcionario?.salario !== 0 ? funcionario?.salario : 0}
+            value={funcionario?.salario !== '' ? funcionario?.salario : ''}
             onChange={handleInputChange}
           />
           <InputMask
             mask="99/99/9999"
             required
             name="nascimento"
+            placeholder="Data de Nascimento"
             value={funcionario?.nascimento}
             onChange={handleInputChange}
           />
@@ -107,8 +108,9 @@ const AddFuncionario: React.FC = () => {
             onChange={e => setSelectValue(e.target.value)}
             name="cargos"
             required
+            placeholder="Cargo"
           >
-            <option> </option>
+            <option value=""> Cargo </option>
             {cargos.map(cargo => {
               return (
                 <option key={cargo.id} value={cargo.id}>

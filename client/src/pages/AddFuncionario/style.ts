@@ -11,11 +11,12 @@ export const Container = styled.div`
   form {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    width: 500px;
-    margin: 50px 0;
+    width: 400px;
+    margin: 10px 0;
     background: #fff;
-    padding: 50px;
+    padding: 20px;
     box-shadow: 0px 0px 15px -5px rgba(0, 0, 0, 0.5);
     border-radius: 20px;
     input,
@@ -24,13 +25,13 @@ export const Container = styled.div`
       background: #fff;
       border-radius: 10px;
       border: 2px solid #312e38;
-      padding: 16px;
+      padding: 10px;
       color: #312e38;
       display: flex;
       align-items: center;
-      margin-top: 30px;
+      margin-top: 10px;
       & + div {
-        margin-top: 30px;
+        margin-top: 10px;
       }
       &::placeholder {
         color: ${lighten(0.2, '#312e38')};
@@ -45,7 +46,7 @@ export const Container = styled.div`
       align-items: center;
       justify-content: space-between;
       button {
-        height: 56px;
+        height: 40px;
         border-radius: 10px;
         border: 0;
         padding: 0 16px;

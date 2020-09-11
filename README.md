@@ -6,7 +6,7 @@
 
 ## Visualização do sistema
 </br>
-<!-- <p align="center"><img src=".github/Sistema_Compras.gif?raw=true" width="500"/></p> -->
+<p align="center"><img src=".github/gif.gif?raw=true" width="500"/></p>
 
 ---
 
@@ -33,7 +33,7 @@
 
 ### 🐘 Banco de dados - Postgress
 
-**Para esse projeto foi utilizaso o banco de dados [Postgres](https://www.postgresql.org/), recomendo utilizado para melhor funcionalidade do projeto**
+**Para esse projeto foi utilizado o banco de dados [Postgres](https://www.postgresql.org/), recomendo utilizar o mesmo para melhor funcionalidade do projeto**
 
 ###### [Tutorial de como baixar e instalar o Postgres](https://www.devmedia.com.br/instalando-postgresql/23364)
 
