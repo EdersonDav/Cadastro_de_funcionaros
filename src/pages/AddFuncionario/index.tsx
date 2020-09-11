@@ -108,7 +108,7 @@ const AddFuncionario: React.FC = () => {
             name="cargos"
             required
           >
-            <option value="Cargo"> Cargo</option>
+            <option> </option>
             {cargos.map(cargo => {
               return (
                 <option key={cargo.id} value={cargo.id}>
