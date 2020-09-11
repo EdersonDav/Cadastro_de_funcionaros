@@ -1,10 +1,19 @@
 {
   "env": {
+<<<<<<< HEAD
     "es6": true,
     "node": true
   },
   "extends": [
     "airbnb-base",
+=======
+    "browser": true,
+    "es6": true
+  },
+  "extends": [
+    "plugin:react/recommended",
+    "airbnb",
+>>>>>>> cadastro_de_funcionaros_frontend-origin/master
     "plugin:@typescript-eslint/recommended",
     "prettier/@typescript-eslint",
     "plugin:prettier/recommended"
@@ -15,10 +24,17 @@
   },
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
+<<<<<<< HEAD
+=======
+    "ecmaFeatures": {
+      "jsx": true
+    },
+>>>>>>> cadastro_de_funcionaros_frontend-origin/master
     "ecmaVersion": 2018,
     "sourceType": "module"
   },
   "plugins": [
+<<<<<<< HEAD
     "@typescript-eslint",
     "prettier"
   ],
@@ -41,6 +57,48 @@
         "argsIgnorePattern": "_"
       }
     ]
+=======
+    "react",
+    "@typescript-eslint",
+    "react-hooks",
+    "prettier"
+  ],
+  "rules": {
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "react/jsx-one-expression-per-line": "off",
+    "no-console": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/prop-types": "off",
+    "@typescript-eslint/ban-types": "off",
+    "no-use-before-define": "off",
+    "camelcase": "off",
+    "array-callback-return": "off",
+    "@typescript-eslint/explicit-function-return-type": [
+      "error",
+      {
+        "allowExpressions": true
+      }
+    ],
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".tsx"
+        ]
+      }
+    ],
+    "import/prefer-default-export": "off",
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    "prettier/prettier": "error"
+>>>>>>> cadastro_de_funcionaros_frontend-origin/master
   },
   "settings": {
     "import/resolver": {

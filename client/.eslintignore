@@ -1,3 +1,11 @@
+<<<<<<< HEAD
 /*.js
 node_modules
 dist
+=======
+**/*.js
+node_modules
+build
+/src/react-app-env.d.ts
+/*.js
+>>>>>>> cadastro_de_funcionaros_frontend-origin/master
