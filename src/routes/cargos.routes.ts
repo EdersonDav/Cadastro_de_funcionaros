@@ -13,10 +13,21 @@ cargosRouter.get('/', async (request, response) => {
 });
 
 cargosRouter.post('/', async (request, response) => {
-  const { nome, descricao } = request.body;
-  const createCargo = new CreateCargoService();
-  const cargo = await createCargo.execute({ nome, descricao });
-  response.json(cargo);
+  try {
+    const { nome, descricao } = request.body;
+    const createCargo = new CreateCargoService();
+    const cargo = await createCargo.execute({ nome, descricao });
+    response.json(cargo);
+  } catch (err) {
+    response.status(400).json({ error: err.message });
+  }
+});
+
+cargosRouter.get('/:id', async (request, response) => {
+  const { id } = request.params;
+  const cargoRepository = getRepository(Cargo);
+  const cargos = await cargoRepository.findOne({ where: { id } });
+  response.json(cargos);
 });
 
 cargosRouter.put('/:id', async (request, response) => {

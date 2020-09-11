@@ -2,8 +2,8 @@ import {
   Entity,
   Column,
   PrimaryGeneratedColumn,
-  OneToOne,
   JoinColumn,
+  ManyToOne,
 } from 'typeorm';
 
 import Cargo from './Cargo';
@@ -19,7 +19,7 @@ class Funcionario {
   @Column()
   sobrenome: string;
 
-  @OneToOne(() => Cargo, cargo => cargo.funcionario, { eager: true })
+  @ManyToOne(() => Cargo, cargo => cargo.funcionario, { eager: true })
   @JoinColumn({ name: 'cargo_id' })
   cargo: Cargo;
 
